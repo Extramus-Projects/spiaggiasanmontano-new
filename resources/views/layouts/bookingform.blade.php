@@ -93,7 +93,7 @@
   </div>
   @guest
     <div class="form-group">
-      <label for="termsandcondition"><input type="checkbox" id="aggreedchkid" name="tandr" value="aggreed" required> {{ __('I agree to the') }} <strong> Negombo </strong><a target="_blank" style="color:blue;" href="{{ route('user.regulations') }}">{{ __('Terms and Regulations') }}</a>.</label><br>
+      <label for="termsandcondition"><input type="checkbox" id="aggreedchkid" name="tandr" value="aggreed" required> {{ __('I agree to the') }} <strong> Spiaggia San Montano </strong><a target="_blank" style="color:blue;" href="{{ route('user.regulations') }}">{{ __('Terms and Regulations') }}</a>.</label><br>
       <label for="termsandcondition"><input type="checkbox" id="aggreedchkid" name="tandr" value="aggreed" required><a target="_blank" style="color:blue;" href="{{ route('user.privacy') }}">{{ __('Privacy: ') }}</a>{{ __('Accetto le condizioni per il trattamento dati.') }}</label><br>
       <span>{{ __('All payments are accepted as confirmation of deposit') }}.</span><br><br>
     </div>

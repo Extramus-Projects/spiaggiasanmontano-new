@@ -1,0 +1,131 @@
+{
+  "Welcome": "Benvenuti",
+
+  "Home": "Home",
+  "Quick Booking": "Prenotazione Rapida",
+  "Places": "Posti",
+  "Contact Us": "Contattaci",
+  "Search": "Ricerca",
+  "Update Map": "Aggiorna Mappa",
+  "Instructions": "Istruzioni",
+  "Choose the day you wish to book": "Scegli il giorno che desideri prenotare",
+  "Update the map to see availability": "Aggiorna la mappa per vedere la disponibilità",
+  "Select your favorite seat": "Seleziona il tuo posto preferito",
+  "You can book maximum": "Puoi prenotare al massimo",
+  "The white umbrellas are not bookable because they are intentionally left free for access to guests arriving at Negombo without having booked": "Gli ombrelloni bianchi non sono prenotabili perché lasciati intenzionalmente liberi per l'accesso agli ospiti che arrivano al Negombo senza aver prenotato",
+
+
+  "Book your favorite place on the map":"Prenota il tuo posto preferito sulla mappa",
+  "Recommended Places":"Luoghi Consigliati",
+  "Javascript is not enabled, it is necessary to enable JavaScript":"Javascript non è abilitato, è necessario abilitare JavaScript",
+  "Instructions how to enable JavaScript in your web browser":"Istruzioni su come abilitare JavaScript nel tuo browser web",
+
+  "Check In":"Check In",
+  "Check Out" : "Check Out",
+  "Number of days" : "Numero di giorni",
+  "day": "giorno",
+  "days": "giorni",
+  "Today": "Oggi",
+  "Arrival day": "Seleziona il giorno di arrivo",
+  "Choose Your Place Here": "Scegli qui il tuo posto",
+  "Number of maximum days exceed": "Il numero di giorni massimo supera",
+  "You have to book for minimum": "Puoi prenotare minimo",
+
+
+  "Place Details": "Dettagli Luogo",
+  "Place ID": "ID Posto",
+  "Place Name": "Nome Del Luogo",
+  "Area": "La Zona",
+  "Place Description": "Descrizione Del Luogo",
+  "Price": "Prezzi",
+  "Prices": "Prezzi",
+  "Total Price": "Prezzo totale",
+  "Price paid now": "Caparra confirmatoria",
+  "Remaining price": "Totale sospeso",
+
+
+  "Adult": "Adulto",
+  "Baby": "Bambino",
+
+  "Booking Reservation": "Prenotazione",
+  "Personal Information": "Informazioni personali",
+  "Full Name": "Nome e cognome",
+  "Name and Surname of the person making the reservation and payment": "Nome e Cognome di chi effettua la prenotazione e il pagamento",
+  "We'll never share your personal information with anyone else": "Non condivideremo mai le tue informazioni personali con nessun altro",
+  "Surname": "Cognome",
+  "Email address": "Indirizzo email",
+  "Booking Tracking Number will be send in your email address": "Il numero di tracciamento della prenotazione verrà inviato nel tuo indirizzo e-mail",
+  "Phone": "Telefono",
+  "Booking Information": "Informazioni Sulla Prenotazione",
+  "Number of adults": "Numero di adulti",
+  "Number of babies": "Numero di bambini",
+  "Booking Date": "Data Di Prenotazione",
+  "Promo Code": "Codice Promozionale",
+  "Payment Type": "Modalità Di Pagamento",
+  "Continue": "Continua",
+  "Agreements": "Accordi",
+  "Promo Error for": "Errore promozionale per",
+
+  "Each umbrella position can be occupied by a maximum of 5 people, if at least one is a child; umbrellas will therefore be allowed with: 1 adult and 4 children, 2 adults and 3 children, 3 adults and 2 children, 4 adults and 1 child.": "Ogni postazione ombrellone potrà essere occupata da un massimo di 5 persone, se almeno una è un bambino; saranno quindi ammessi ombrelloni con: 1 adulto e 4 bambini, 2 adulti e 3 bambini, 3 adulti e 2 bambini, 4 adulti e 1 bambino.",
+
+  "Booking Confirmation": "Conferma Della Prenotazione",
+  "Hi": "Ciao",
+  "the place is available for booking": "il posto è disponibile per la prenotazione",
+  "Entranced by": "Affascinato da",
+  "Booked by": "Prenotato da",
+
+  "Payment with Paypal": "Pagamento con Paypal",
+  "Payment Status": "Stato Del Pagamento",
+  "Pending": "in sospeso",
+  "Paid": "Pagato",
+  "Hand Cash": "Contanti a mano",
+  "Paid": "Pagato",
+  "On hold": "In attesa",
+  "Congratulations": "Congratulazioni",
+  "You have a successful booking": "Hai prenotato con successo",
+  "Tracking Number": "Numero di identificazione",
+  "Store your tracking number for future tracking, also check your email about the booking confirmation": "Memorizza il tuo numero di tracciamento per il tracciamento futuro, controlla anche la tua e-mail sulla conferma della prenotazione",
+
+  "All payments are accepted as confirmation of deposit": "Tutti i pagamenti sono accettati come caparra confirmatoria",
+
+  "Map place is available": "Il posto della mappa è disponibile",
+  "Loading, Please donot close the page": "Caricamento, non chiudere la pagina",
+
+  "Contact With Us": "Contatta con noi",
+
+  "Map Location": "Posizione Sulla Mappa",
+  "Call Us": "Chiamaci",
+
+  "Due Paid Amount": "Importo dovuto",
+  "Paid Amount": "Importo pagato",
+
+  "Arrival day is not selected": "Il giorno di arrivo non è selezionato",
+
+
+
+  "Terms and Regulations": "Termini e Regolamenti",
+  "I agree to the": "Sono d'accordo con il",
+
+  "Print Reservation": "Stampa Prenotazione",
+
+  "Adults": "Adulti",
+
+  "Pay": "Compra",
+
+
+  "IMPORTANT": "IMPORTANTE",
+  "At the time of payment, enter Paypal or Credit Card details, at the end of the operation you must remain on the prenotazioni.negombo.it website until the booking confirmation is printed": "Si prega di restare collegati fino alla fine dell'operazione. A pagamento concluso il sistema reindirizzera' alla pagina spiaggiasanmontano.it e invierà la conferma con il riepilogo della prenotazione. Il processo di prenotazione sarà valido solo a ricezione della email di conferma da parte del sito spiaggiasanmontano.it",
+  "Receipt of payment without booking confirmation from the prenotazioni.negombo.it site does not entail the actual assignment of the seat": "La ricezione di avvenuto pagamento priva di conferma di prenotazione da parte del sito spiaggiasanmontano.it non comporta l'effettiva assegnazione del posto",
+
+
+
+  "If you have successfully paid, we need to complete your booking": "Se hai effettuato il pagamento con successo, dobbiamo completare la prenotazione",
+  "Follow these simple instructions": "Segui queste semplici istruzioni",
+  "Click on the red \"Close\" button": "Clicca sul pulsante rosso \"Chiudi\"",
+  "Click on the green \"Continue\" button": "Clicca sul pulsante verde \"Continua\"",
+  "Download the document with the reservation": "Scarica il documento con la prenotazione",
+  "It is important to carry out these operations otherwise there could be problems in the booking": "E' importante svolgere queste operazioni altrimenti potrebbero verficarsi problemi nella prenotazione",
+
+  "Sitemap": "Mappa del sito"
+
+}

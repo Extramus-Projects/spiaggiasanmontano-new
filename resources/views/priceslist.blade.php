@@ -37,8 +37,8 @@ div.cls_013{font-family:Arial,serif;font-size:10.0px;color:rgb(0,0,0);font-weigh
               <h3><strong>{{ (__('Prices')) }}</strong></h3>
             </div>
             <div class="card-body">
-              <iframe src="{{ asset('images/docs/pricelist.pdf') }}" width="100%" height="1000px" /></iframe>
-              {{-- <div style="top:0px;width:595px;height:842px;overflow:hidden">
+              <iframe src="{{ asset('images/docs/spiaggiapricing.pdf') }}" width="100%" height="1000px"></iframe>
+              <!-- {{-- <div style="top:0px;width:595px;height:842px;overflow:hidden">
                   <div style="position:absolute;left:0px;top:0px">
                   <img src="{{ asset('images/siteimages/priceback.jpg') }}" width=595 height=842></div>
                   <div style="position:absolute;left:56.64px;top:71.52px" class="cls_021"><span class="cls_021">LISTINO PREZZI GIORNALIERO</span></div>
@@ -209,7 +209,7 @@ div.cls_013{font-family:Arial,serif;font-size:10.0px;color:rgb(0,0,0);font-weigh
                   <div style="position:absolute;left:92.64px;top:740.52px" class="cls_019"><span class="cls_019">moltiplicato per i giorni richiesti.  A tale costo sarà aggiunto un supplemento giornaliero di € 5,00.</span></div>
                   <div style="position:absolute;left:74.64px;top:752.28px" class="cls_018"><span class="cls_018">2)</span><span class="cls_013"> </span><span class="cls_019">  Per il mese di agosto l’unica forma di abbonamento è mensile, pertanto per eventuali periodi inferiori  si applicherà il prezzo</span></div>
                   <div style="position:absolute;left:92.64px;top:763.68px" class="cls_019"><span class="cls_019">dell'intero mese come da listino.</span></div>
-                  </div> --}}
+                  </div> --}} -->
             </div>
           </div>
         </div>

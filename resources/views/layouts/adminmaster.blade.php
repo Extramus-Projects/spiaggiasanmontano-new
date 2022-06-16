@@ -196,12 +196,7 @@
                           <span class="menu-collapsed">{{ __('Staffs') }}</span>
                       </div>
                   </a>
-                   {{-- <a href="{{ route('admin.users') }}" class="bg-dark list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-users fa-fw mr-3"></span>
-                          <span class="menu-collapsed">{{ __('Users') }}</span>
-                      </div>
-                  </a> --}}
+
 
                   {{-- start setting submenu --}}
                   <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">

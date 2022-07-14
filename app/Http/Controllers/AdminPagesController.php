@@ -32,7 +32,6 @@ class AdminPagesController extends Controller
     $set_admin = SettingAdmin::orderBy('id')->first();
 
     $numberofplace = Place::orderBy('places_id')->count();
-
     $numberofbookings = Booking::orderBy('id')->count();
     $numberofAggr = Booking::where('user_payment_type', 'Agreements')->count();
     $numberofEntrance = Booking::where('user_payment_type', 'Entrance')->count();
@@ -43,8 +42,7 @@ class AdminPagesController extends Controller
     $earningStripe = Booking::where('user_payment_type', 'Stripe')->sum('paid_ammount');
     $earningcard = Booking::where('user_payment_type', 'Credit Card')->sum('paid_ammount');
 
-
-
+    $places_name = Place::orderBy('place_id')->get('place_name');
 
 
     $rec_act_bookings = $set_admin->recentActivaty(7);
@@ -59,104 +57,110 @@ class AdminPagesController extends Controller
 
       $nmofdays = ($request->no_of_day) - 1;
 
+      $booking_place_array = array();
+      foreach($request->place_id as $place_id){
+        array_push($booking_place_array, $place_id);
+      }
 
+      for($i = 0; $i < count($booking_place_array); $i++){
+        // var_dump($booking_place_array[$i]);
 
-
-      $booking = new Booking;
-      $booking->place_id = $request->place_id;
-      $booking->user_checkin = $checkin_date;
-      $booking->user_checkout = $checkout_date;
-      $place = Place::where('place_id', $booking->place_id)->first();
-      $isfound = Place::where('place_id', $booking->place_id)->count();
-      if ($isfound <= 0)
-        array_push($error_msg, "Place id is not found.");
-      if ($booking->check_availability() && count($error_msg) == 0) {
-        $booking->user_fullname = $request->user_fullname;
-        $booking->user_surname = $request->user_fullname;
-        $booking->payer_name = Auth::User()->name;
-        $booking->user_email = $request->user_email;
-        $booking->user_phone = $request->user_phone;
-        $booking->user_no_of_guest = ($request->numberofguest) + 1;
-        $booking->user_no_of_babies = $request->numberofbabies;
-        if (isset($request->guestnames[0]))
-          $booking->guest_surname1 = $request->guestnames[0];
-        if (isset($request->guestnames[1]))
-          $booking->guest_surname2 = $request->guestnames[1];
-        if (isset($request->guestnames[2]))
-          $booking->guest_surname3 = $request->guestnames[2];
-
-        if (isset($request->guestnamesbabies[0]))
-          $booking->baby_surname1 = $request->guestnamesbabies[0];
-        if (isset($request->guestnamesbabies[1]))
-          $booking->baby_surname2 = $request->guestnamesbabies[1];
-        if (isset($request->guestnamesbabies[2]))
-          $booking->baby_surname3 = $request->guestnamesbabies[2];
-        if (isset($request->guestnamesbabies[3]))
-          $booking->baby_surname4 = $request->guestnamesbabies[3];
-
-        $booking->user_booking_tracking_id = uniqid('Spiaggia_San_Montano_', true);
-        $booking->user_payment_type = $request->user_payment_type;
-        if ($booking->user_payment_type == "Admin") {
-          $booking->user_payment_type = 'Admin';
-          $booking->paid_ammount = 0;
-          $booking->is_approved = 1;
-        } else {
-
-          $datetime1 = new DateTime($booking->user_checkin);
-          $datetime2 = new DateTime($booking->user_checkout);
-          $interval = $datetime1->diff($datetime2);
-          $numberofdays = $interval->format('%a');
-
-          $booking->is_approved = 1;
-          $booking->user_payment_type = 'Entrance';
-          $promo = $request->promocode;
-          $promoCode = new PromoCode;
-          $discount = 0;
-          $price_temp = $set_admin->calculatePrice($place, $booking->user_checkin, $booking->user_checkout, $booking->user_no_of_guest);
-          $booking->paid_ammount = $price_temp;
-          $place->price = $price_temp;
-          if ($promoCode->checkingValidity($promo, $place->map_name, $numberofdays)) {
-            $booking->user_promo = $promo;
-            $discount = $promoCode->discountCalculate($booking->user_promo, $place->price);
-            $place->price = $place->price - $discount;
-            $booking->paid_ammount = $place->price;
+        $booking = new Booking;
+        $booking->place_id = $booking_place_array[$i];
+        $booking->user_checkin = $checkin_date;
+        $booking->user_checkout = $checkout_date;
+        $place = Place::where('place_id', $booking->place_id)->first();
+        $isfound = Place::where('place_id', $booking->place_id)->count();
+        if ($isfound <= 0)
+          array_push($error_msg, "Place id is not found.");
+        if ($booking->check_availability() && count($error_msg) == 0) {
+          $booking->user_fullname = $request->user_fullname;
+          $booking->user_surname = $request->user_fullname;
+          $booking->payer_name = Auth::User()->name;
+          $booking->user_email = $request->user_email;
+          $booking->user_phone = $request->user_phone;
+          $booking->user_no_of_guest = ($request->numberofguest) + 1;
+          $booking->user_no_of_babies = $request->numberofbabies;
+          if (isset($request->guestnames[0]))
+            $booking->guest_surname1 = $request->guestnames[0];
+          if (isset($request->guestnames[1]))
+            $booking->guest_surname2 = $request->guestnames[1];
+          if (isset($request->guestnames[2]))
+            $booking->guest_surname3 = $request->guestnames[2];
+  
+          if (isset($request->guestnamesbabies[0]))
+            $booking->baby_surname1 = $request->guestnamesbabies[0];
+          if (isset($request->guestnamesbabies[1]))
+            $booking->baby_surname2 = $request->guestnamesbabies[1];
+          if (isset($request->guestnamesbabies[2]))
+            $booking->baby_surname3 = $request->guestnamesbabies[2];
+          if (isset($request->guestnamesbabies[3]))
+            $booking->baby_surname4 = $request->guestnamesbabies[3];
+  
+          $booking->user_booking_tracking_id = uniqid('Spiaggia_San_Montano_', true);
+          $booking->user_payment_type = $request->user_payment_type;
+          if ($booking->user_payment_type == "Admin") {
+            $booking->user_payment_type = 'Admin';
+            $booking->paid_ammount = 0;
             $booking->is_approved = 1;
-          } else if (isset($request->promocode)) {
-            array_push($error_msg, "Given Promo is not worked.");
+          } else {
+  
+            $datetime1 = new DateTime($booking->user_checkin);
+            $datetime2 = new DateTime($booking->user_checkout);
+            $interval = $datetime1->diff($datetime2);
+            $numberofdays = $interval->format('%a');
+  
+            $booking->is_approved = 1;
+            $booking->user_payment_type = 'Entrance';
+            $promo = $request->promocode;
+            $promoCode = new PromoCode;
+            $discount = 0;
+            $price_temp = $set_admin->calculatePrice($place, $booking->user_checkin, $booking->user_checkout, $booking->user_no_of_guest);
+            $booking->paid_ammount = $price_temp;
+            $place->price = $price_temp;
+            if ($promoCode->checkingValidity($promo, $place->map_name, $numberofdays)) {
+              $booking->user_promo = $promo;
+              $discount = $promoCode->discountCalculate($booking->user_promo, $place->price);
+              $place->price = $place->price - $discount;
+              $booking->paid_ammount = $place->price;
+              $booking->is_approved = 1;
+            } else if (isset($request->promocode)) {
+              array_push($error_msg, "Given Promo is not worked.");
+            }
           }
+        } else {
+          array_push($error_msg, "Place " . $booking->place_id . " is not available for this time.");
         }
-      } else {
-        array_push($error_msg, "Place " . $booking->place_id . " is not available for this time.");
+  
+        if (count($error_msg) > 0) {
+          $numberofplace = Place::orderBy('places_id')->count();
+          // $numberofbookings = Booking::orderBy('id')->count();
+          $numberofbookings = 10;
+          return view('adminpages.dashboard')->with('numberofplace', $numberofplace)->with('numberofbookings', $numberofbookings)->with('set_admin', $set_admin)->with('error_msg', $error_msg)->with('rec_act_bookings', $rec_act_bookings)->with('numberofAggr', $numberofAggr)
+            ->with('numberofEntrance', $numberofEntrance)
+            ->with('earningEntrance', $earningEntrance)
+            ->with('earningAgr', $earningAgr)
+            ->with('earningPaypal', $earningPaypal)
+            ->with('earningStripe', $earningStripe)
+            ->with('earningcard', $earningcard)
+            ->with('places_name', $places_name);
+        }
+  
+        if (Auth::user()) {
+          $booking->creator_name = Auth::user()->name;
+        }
+        $booking->save();
       }
-
-      if (count($error_msg) > 0) {
-        $numberofplace = Place::orderBy('places_id')->count();
-        // $numberofbookings = Booking::orderBy('id')->count();
-        $numberofbookings = 10;
-        return view('adminpages.dashboard')->with('numberofplace', $numberofplace)->with('numberofbookings', $numberofbookings)->with('set_admin', $set_admin)->with('error_msg', $error_msg)->with('rec_act_bookings', $rec_act_bookings)->with('numberofAggr', $numberofAggr)
-          ->with('numberofEntrance', $numberofEntrance)
-          ->with('earningEntrance', $earningEntrance)
-          ->with('earningAgr', $earningAgr)
-          ->with('earningPaypal', $earningPaypal)
-          ->with('earningStripe', $earningStripe)
-          ->with('earningcard', $earningcard);
+        return redirect()->route('admin');
       }
-
-      if (Auth::user()) {
-        $booking->creator_name = Auth::user()->name;
-      }
-
-      $booking->save();
-      return redirect()->route('admin');
-    }
-
 
     return view('adminpages.dashboard')->with('numberofplace', $numberofplace)->with('numberofbookings', $numberofbookings)->with('set_admin', $set_admin)->with('rec_act_bookings', $rec_act_bookings)->with('numberofAggr', $numberofAggr)->with('numberofEntrance', $numberofEntrance)
       ->with('earningEntrance', $earningEntrance)
       ->with('earningAgr', $earningAgr)
       ->with('earningPaypal', $earningPaypal)
       ->with('earningStripe', $earningStripe)
-      ->with('earningcard', $earningcard);
+      ->with('earningcard', $earningcard)
+      ->with('places_name', $places_name);
   }
 
 

@@ -1,3 +1,7 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet"/>
 <div class="modal fade" id="myModal">
   <div class=row>
       <div class="col-sm-10 offset-sm-1">
@@ -22,8 +26,17 @@
                   <div class="form-group row">
                       <label for="placeid" class="col-md-4 col-form-label text-md-right">{{ __('Place ID') }}: </label>
                       <div class="col-md-6">
-                          <input type="text" class="form-control" name="place_id" required>
-                      </div>
+                        <script>
+                          new SlimSelect({
+                          select: '#multiple'
+                          })
+                        </script>
+                        <select name="place_id[]" id="multiple" multiple>
+                          @foreach($places_name as $place)
+                          <option name="place_id[]" value="{{$place['place_name']}}">{{$place['place_name']}}</option>
+                          @endforeach
+                        </select>
+                      </div>              
                   </div>
                   <div class="form-group row">
                       <label for="placeid" class="col-md-4 col-form-label text-md-right">{{ __('Arrival day') }}: </label>
@@ -41,6 +54,11 @@
                         </div>
                       </div>
                   </div>
+
+
+
+<!-- Optgroups -->
+
                   <div class="form-group row">
                       <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}: </label>
                       <div class="col-md-6">
@@ -175,6 +193,9 @@ var date = tomorrow.getFullYear()+'-'+(tomorrow.getMonth()+1)+'-'+tomorrow.getDa
 </script>
 
 <script type="text/javascript">
+new SlimSelect({
+  select: '#multiple'
+})
 
 @isset($error_msg)
   @if (count($error_msg) > 0)
